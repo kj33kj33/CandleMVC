@@ -8,4 +8,22 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
+    <PackageReference Include="Dapper" Version="2.0.143" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Fragrance\" />
+    <None Remove="Views\Note\" />
+    <None Remove="Views\Candle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Fragrance\" />
+    <Folder Include="Views\Note\" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="Views\Candle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\" />
+  </ItemGroup>
 </Project>

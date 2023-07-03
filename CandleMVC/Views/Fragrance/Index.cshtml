@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Fragrance>
+
+<h2>Fragrances</h2>
+
+<div style="display: block">
+    <a href="/Fragrance/InsertFragrance/">Create a New Fragrance</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Image</th>
+        @*<th>Fragrance ID</th>*@
+        <th>Name</th>
+        <th>Rating</th>
+        @*<th>New?</th>*@
+        <th>Top Notes</th>
+        <th>Middle Notes</th>
+        <th>Base Notes</th>
+        <th>Blends With</th>
+        @*<th>Colors</th>
+        <th>Brand Ideas</th>*@
+    </tr>
+
+    @foreach (var fragrance in @Model)
+    {
+        <tr>
+            <td>
+                <a href="/Fragrance/ViewFragrance/@fragrance.FragranceID">
+                    <img src="~/Images/@{@fragrance.FragranceID}.png" />
+                    <style>
+                        img {
+                            border: 2px solid #C0C0C0;
+                            padding: 5px;
+                            width: 100px;
+                            height: 100px;
+                        }
+                        img:hover {
+                            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+                        }
+                    </style>
+                </a>
+            </td>
+            @*<td><a href=/Fragrance/ViewFragrance/@fragrance.FragranceID>@fragrance.FragranceID</a></td>*@
+            <td><a href=/Fragrance/ViewFragrance/@fragrance.FragranceID>@fragrance.Name</a></td>
+            <td>@fragrance.Rating</td>
+            @*<td>@fragrance.NewOrNot</td>*@
+            <td>@fragrance.TopNotes</td>
+            <td>@fragrance.MiddleNotes</td>
+            <td>@fragrance.BaseNotes</td>
+            <td>@fragrance.BlendsWith</td>
+            @*<td>@fragrance.Colors</td>
+        <td>@fragrance.BrandIdeas</td>*@
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    }
+</table>

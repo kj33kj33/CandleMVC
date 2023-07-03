@@ -1,0 +1,31 @@
+﻿@model Fragrance
+
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateFragranceToDatabase", "Fragrance", "Post"))
+{
+    <input asp-for="FragranceID" type="hidden" value="@Model.FragranceID" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name" />
+
+    <label asp-for="Price" class="control-label">Price</label>
+    <input type="number" step="0.01" name="Price" class="form-control" value="@Model.Price" />
+
+    <label asp-for="Rating" class="control-label">Rating</label>
+    <input type="number" name="Rating" class="form-control" value="@Model.Rating" />
+
+    <label asp-for="TopNotes" class="control-label">Top Notes</label>
+    <input type="text" name="TopNotes" class="form-control" value="@Model.TopNotes" />
+
+    <label asp-for="MiddleNotes" class="control-label">Middle Notes</label>
+    <input type="text" name="MiddleNotes" class="form-control" value="@Model.MiddleNotes" />
+
+    <label asp-for="BaseNotes" class="control-label">Base Notes</label>
+    <input type="text" name="BaseNotes" class="form-control" value="@Model.BaseNotes" />
+
+    <label asp-for="BlendsWith" class="control-label">Blends Well With</label>
+    <input type="text" name="BlendsWith" class="form-control" value="@Model.BlendsWith" />
+
+    <input type="submit" value="Update Fragrance" class="btn btn-primary" />
+}

@@ -1,0 +1,34 @@
+﻿@model Candle
+
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateCandleToDatabase", "Candle", "Post"))
+{
+    <input asp-for="CandleID" type="hidden" value="@Model.CandleID" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name" />
+
+    <label asp-for="Fragrances" class="control-label">Fragrances</label>
+    <input type="text" name="Fragrances" class="form-control" value="@Model.Name" />
+
+    <label asp-for="Notes" class="control-label">Notes</label>
+    <input type="text" name="Notes" class="form-control" value="@Model.Notes" />
+
+    <label asp-for="Container" class="control-label">Container</label>
+    <input type="text" name="Container" class="form-control" value="@Model.Container" />
+
+    <label asp-for="Wick" class="control-label">Wick</label>
+    <input type="text" name="Wick" class="form-control" value="@Model.Wick" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" name="Description" class="form-control" value="@Model.Description" />
+
+    <label asp-for="Price" class="control-label">Price</label>
+    <input type="number" step="0.01" name="Price" class="form-control" value="@Model.Price" />
+
+    <label asp-for="Image" class="control-label">Image</label>
+    <input type="text" name="Image" class="form-control" value="@Model.Image" />
+
+    <input type="submit" value="Update Candle" class="btn btn-primary" />
+}

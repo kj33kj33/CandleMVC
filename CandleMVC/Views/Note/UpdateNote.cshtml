@@ -1,0 +1,22 @@
+﻿@model Note
+
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateNoteToDatabase", "Note", "Post"))
+{
+    <input asp-for="NoteID" type="hidden" value="@Model.NoteID" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" name="Description" class="form-control" value="@Model.Description" />
+
+    <label asp-for="Profile" class="control-label">Profile</label>
+    <input type="text" name="Profile" class="form-control" value="@Model.Profile" />
+
+    <label asp-for="Facts" class="control-label">Facts</label>
+    <input type="text" name="Facts" class="form-control" value="@Model.Facts" />
+
+    <input type="submit" value="Update Note" class="btn btn-primary" />
+}

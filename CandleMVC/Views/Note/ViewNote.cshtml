@@ -1,0 +1,33 @@
+﻿@model Note
+
+<h3>@Model.Name Information</h3>
+
+<table class="table">
+    <tr>
+        <th>NoteID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Profile</th>
+        <th>Facts</th>
+    </tr>
+    <tr>
+        <td>@Model.NoteID</td>
+        <td>@Model.Name</td>
+        <td>@Model.Description</td>
+        <td>@Model.Profile</td>
+        <td>@Model.Facts</td>
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Note/UpdateNote/@Model.NoteID">Update this Note</a>
+</div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteNote", "Note", "Post"))
+    {
+        <input type="hidden" asp-for="NoteID" value="@Model.NoteID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this fragrance note" />
+    }
+</div>

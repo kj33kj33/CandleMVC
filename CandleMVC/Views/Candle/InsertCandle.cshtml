@@ -1,0 +1,41 @@
+﻿@model Candle
+
+<h2>Create a Candle!</h2>
+
+@using (Html.BeginForm("InsertCandleToDatabase", "Candle", "Post"))
+{
+    <input asp-for="CandleID" type="hidden" value="" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="" />
+
+    <div class="form-group">
+        <label for="">Select a Fragrance</label>
+        <select class="form-control" name="Fragrances" value="">
+            @foreach (var frag in Model.FragrancesList)
+            {
+                <option value="@frag.Name">@frag.Name</option>
+            }
+        </select>
+    </div>
+
+    <label asp-for="Notes" class="control-label">Notes</label>
+    <input type="text" name="Notes" class="form-control" value="" />
+
+    <label asp-for="Container" class="control-label">Container</label>
+    <input type="text" name="Container" class="form-control" value="" />
+
+    <label asp-for="Wick" class="control-label">Wick</label>
+    <input type="text" name="Wick" class="form-control" value="" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" name="Description" class="form-control" value="" />
+
+    <label asp-for="Price" class="control-label">Price</label>
+    <input type="number" step="0.01" name="Price" class="form-control" />
+
+    <label asp-for="Image" class="control-label">Image</label>
+    <input type="text" name="Image" class="form-control" value="" />
+
+    <input type="submit" value="Create Product" class="btn btn-primary" />
+}

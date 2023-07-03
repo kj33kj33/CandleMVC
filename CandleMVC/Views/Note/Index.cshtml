@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Note>
+
+<h2>Fragrance Notes</h2>
+
+<table class="table">
+    <tr>
+        <th>NoteID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Profile</th>
+        <th>Facts</th>
+    </tr>
+
+    @foreach(var note in @Model)
+    {
+        <tr>
+            <td><a href=/Note/ViewNote/@note.NoteID>@note.NoteID</a></td>
+            <td><a href=/Note/ViewNote/@note.NoteID>@note.Name</a></td>
+            <td>@note.Description</td>
+            <td>@note.Profile</td>
+            <td>@note.Facts</td>
+        </tr>
+    }
+</table>
+
+<div style="display: block">
+    <a href="/Note/InsertNote/">Create a New Fragrance Note</a>
+</div>

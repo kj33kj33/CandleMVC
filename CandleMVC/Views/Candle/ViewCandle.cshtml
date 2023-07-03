@@ -1,0 +1,48 @@
+﻿@model Candle
+
+<h3>@Model.Name</h3>
+
+<img src="~/Images/@{@Model.Image}" />
+<style>
+    img {
+        width: 820px;
+    }
+</style>
+
+<table class="table">
+    <tr>
+        <th>Candle ID</th>
+        <th>Name</th>
+        <th>Fragrances</th>
+        <th>Notes</th>
+        <th>Container</th>
+        <th>Wick</th>
+        <th>Description</th>
+        <th>Price</th>
+        @*<th>Image</th>*@
+    </tr>
+    <tr>
+        <th>@Model.CandleID</th>
+        <th>@Model.Name</th>
+        <th>@Model.Fragrances</th>
+        <th>@Model.Notes</th>
+        <th>@Model.Container</th>
+        <th>@Model.Wick</th>
+        <th>@Model.Description</th>
+        <th>@Model.Price</th>
+        @*<th>@Model.Image</th>*@
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Candle/UpdateCandle/@Model.CandleID">Update this Candle</a>
+</div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteCandle", "Candle", "Post"))
+    {
+        <input type="hidden" asp-for="CandleID" value="@Model.CandleID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this candle" />
+    }
+</div>

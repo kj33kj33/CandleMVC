@@ -1,0 +1,52 @@
+﻿@model Fragrance
+
+<h3>@Model.Name</h3>
+
+<img src="~/Images/@{@Model.FragranceID}.png" />
+<style>
+    img {
+        width: 820px;
+    }
+</style>
+
+<table class="table">
+    <tr>
+        <th>Fragrance ID</th>
+        <th>Name</th>
+        <th>Rating</th>
+        @*<th>New?</th>*@
+        <th>Top Notes</th>
+        <th>Middle Notes</th>
+        <th>Base Notes</th>
+        <th>Blends With</th>
+        @*<th>Colors</th>
+            <th>Brand Ideas</th>*@
+    </tr>
+    <tr>
+        <td>@Model.FragranceID</td>
+        <td>@Model.Name</td>
+        <td>@Model.Rating</td>
+        @*<td>@Model.NewOrNot</td>*@
+        <td>@Model.TopNotes</td>
+        <td>@Model.MiddleNotes</td>
+        <td>@Model.BaseNotes</td>
+        <td>@Model.BlendsWith</td>
+        @*<td>@Model.Colors</td>
+            <td>@Model.BrandIdeas</td>*@
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Fragrance/UpdateFragrance/@Model.FragranceID">Update this Fragrance</a>
+</div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteFragrance", "Fragrance", "Post"))
+    {
+        <input type="hidden" asp-for="FragranceID" value="@Model.FragranceID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this fragrance" />
+    }
+</div>
+
+
